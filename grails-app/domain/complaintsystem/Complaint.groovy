@@ -3,17 +3,18 @@ package complaintsystem
 class Complaint {
 
     static constraints = {
-		type(nullable:true)
-		affects(nullable:true)
-		utility(nullable:true)
-		source(nullable:true)
+		type(nullable:true, blank:true)
+		affects(nullable:true, blank:true)
+		utility(nullable:true, blank:true)
+		source(nullable:true, blank:true)
+		content(nullable:false)
+		
     }
 
 //    String complaintText
 
 	String content
-    static belongsTo = [affects: Customer, utility: Utility, source: Message]
-	static hasMany = [types: ComplaintType]
+    static belongsTo = [type: ComplaintType, affects: Customer, utility: Utility, source: Message]
 	
 	String toString() {
 		"${affects*.phoneNumber}"
