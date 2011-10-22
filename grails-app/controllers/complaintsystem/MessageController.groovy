@@ -23,10 +23,38 @@ class MessageController {
 
 	def processMessage(Message m) {
 		def customer
-		def tm
-		
-		if(!Customer.findAllByPhoneNumber(m.src)) {
-			customer = new Customer(phoneNumber:m.src, accountNumber:tm.accountNo).save(flush:true)
+		def complaint
+		def tm = [accountNo:"456789", location:"Kikuyu",source:"message"]
+		println "find response -" + Customer.findByPhoneNumber(m.src)
+		if(!Customer.findByPhoneNumber(m.src)){
+			customer = Customer.findByPhoneNumber(m.src)
+		}else {
+			customer = new Customer(phoneNumber:m.src, accountNumber:tm?.accountNo).save(flush:true, failOnError:true)
+		}
+		println "customer ${customer.phoneNumber}"
+		complaint = new Complaint(affects:customer, content: tm?.source)
+		println "complaint created $complaint"
+		def utility = Utility.findByLocation(tm?.location)
+		setComplains(complaint, m)
+		complaint.setUtility(utility)
+		complaint.setSource(m).save(flush:true, failOnError:true)
+		println "Complaint utilities: ${complaint.utitlity}"
+		println "complaint customer: ${complaint.affects}"
+		println "Complaint types ${complaint.type}"
+		println "complaint created"
+	}
+
+	def setComplains(complaint, message) {
+		ComplaintType.list().each {ct ->
+			def tagList = ct?.tags?.tokenize(",")
+			println "tag list is $tagList"
+			tagList.collect {
+				if(message.contains(it)) {
+					println "found matching tag $it in $message"
+					complaint.addToTypes(ct)
+				}
+			}
 		}
 	}
+
 }
