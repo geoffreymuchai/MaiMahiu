@@ -30,36 +30,32 @@ class MessageController {
 		def utility
 
 		if(tm) {
-			if(!Customer.findByPhoneNumber(m.src)){
+			if(Customer.findByPhoneNumber(m.src)){
 				customer = Customer.findByPhoneNumber(m.src)
 			}else {
 				customer = new Customer(phoneNumber:m.src, accountNumber:tm?.accNo).save(flush:true, failOnError:true)
 			}
-			println "customer ${customer.phoneNumber}"
 			
 			if(tm?.location)
 				utility= Utility.findByLocation(tm.location)
-			//setComplains(complaint, m)
-			println "customer ${customer} ,utility: $utility, content: ${tm?.complaint}"
-			complaint = new Complaint(affects:customer, content: tm?.complaint, source:m).save(flush:true, failOnError:true)
-			println "Complaint utilities: ${complaint.utitlity}"
-			println "complaint customer: ${complaint.affects}"
-			println "Complaint types ${complaint.type}"
-			println "complaint created"
+			complaint = new Complaint(affects:customer, content: tm?.complaint, source:m, utility: utility).save(flush:true)
+			setComplains(complaint, tm.complaint)
 		} else {
-
+			[]
 		}
 		
 	}
 
 	def setComplains(complaint, message) {
-		ComplaintType.list().each {ct ->
-			def tagList = ct?.tags?.tokenize(",")
-			println "tag list is $tagList"
-			tagList.collect {
-				if(message.contains(it)) {
-					println "found matching tag $it in $message"
-					complaint.addToTypes(ct)
+		boolean found
+		ComplaintType.list(sort:"urgencyRating", order:"asc").each {ct ->
+			if(!found) {
+				def tagList = ct?.tags?.tokenize(",")
+				tagList.collect {
+					if(message.contains(it)) {
+						complaint.setType(ct)
+						found = true
+					}
 				}
 			}
 		}

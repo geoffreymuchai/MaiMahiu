@@ -11,6 +11,7 @@ class ShiroSecurityFilters {
 
                 // Access control by convention.
 //                accessControl()
+
             }
         }
     }
