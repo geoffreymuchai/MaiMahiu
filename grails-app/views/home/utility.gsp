@@ -8,6 +8,6 @@
         </style>
     </head>
   <body>
-    <h2>Welcome to ${utilityInstance.name}</h2>
+    <h2>Welcome to ${utilityInstance.utility.name}</h2>
   </body>
 </html>

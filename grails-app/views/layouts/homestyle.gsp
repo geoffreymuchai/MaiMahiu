@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="content-language" content="en" />
-    <link rel="stylesheet" media="screen,projection" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" href="${resource(dir:'css', file:'style.css')}" />
     <title>VoiceH20 : Bring out your water issues</title>
 </head>
 
