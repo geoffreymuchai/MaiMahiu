@@ -12,12 +12,10 @@ class Complaint {
     }
 
     String content
-
-	String content
     static belongsTo = [type: ComplaintType, affects: Customer, utility: Utility, source: Message]
 	
-	String toString() {
-		"${affects*.phoneNumber}"
-	}
+//	String toString() {
+//		"${affects*.phoneNumber}"
+//	}
 }
 
