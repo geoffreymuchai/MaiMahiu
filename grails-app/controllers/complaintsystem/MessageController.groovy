@@ -1,5 +1,7 @@
 package complaintsystem
 
+import grails.converters.JSON
+
 class MessageController {
 
     def scaffold = true
@@ -13,18 +15,13 @@ class MessageController {
     }
 	
 	def register = {
-		def registrationMessage = ""
-		render(contentType: "application/json") {
-            payload("success" : "true")
-        }
+		def registrationMessage = "Please register in this format: [Fixed Address or Main Road], [Birth Year], [1 for Consumer, 2 for Vendor], [Account Number or 0000 if purchasing from vendor]"
+		def send = [success: "true", task: "send", message:registrationMessage]
+		def payload = [payload:send]
+		render payload as JSON
 	}
 
 	def processMessage(Message m) {
 		
 	}
 }
-
-//class RecipientCommand {
-//    String from
-//    String message
-//}
