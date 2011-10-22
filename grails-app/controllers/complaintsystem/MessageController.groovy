@@ -38,22 +38,24 @@ class MessageController {
 			
 			if(tm?.location)
 				utility= Utility.findByLocation(tm.location)
-			//setComplains(complaint, m)
-			complaint = new Complaint(affects:customer, content: tm?.complaint, source:m).save(flush:true)
+			complaint = new Complaint(affects:customer, content: tm?.complaint, source:m, utility: utility).save(flush:true)
+			setComplains(complaint, tm.complaint)
 		} else {
-
+			[]
 		}
 		
 	}
 
 	def setComplains(complaint, message) {
-		ComplaintType.list().each {ct ->
-			def tagList = ct?.tags?.tokenize(",")
-			println "tag list is $tagList"
-			tagList.collect {
-				if(message.contains(it)) {
-					println "found matching tag $it in $message"
-					complaint.addToTypes(ct)
+		boolean found
+		ComplaintType.list(sort:"urgencyRating", order:"asc").each {ct ->
+			if(!found) {
+				def tagList = ct?.tags?.tokenize(",")
+				tagList.collect {
+					if(message.contains(it)) {
+						complaint.setType(ct)
+						found = true
+					}
 				}
 			}
 		}
