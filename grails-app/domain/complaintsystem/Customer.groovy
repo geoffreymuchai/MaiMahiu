@@ -6,7 +6,7 @@ class Customer {
 		phoneNumber (blank:false, nullable:false)
 		accountNumber(nullable:true)
 		name(nullable:true)
-		reference(nullable:true)
+		referenceNo(nullable:true)
     }
 
     String accountNumber
@@ -14,4 +14,7 @@ class Customer {
 	String name
 	String referenceNo
 
+    String toString() {
+
+    }
 }
