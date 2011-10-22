@@ -22,7 +22,11 @@ class MessageController {
 	}
 
 	def processMessage(Message m) {
-
+		def customer
+		def tm
 		
+		if(!Customer.findAllByPhoneNumber(m.src)) {
+			customer = new Customer(phoneNumber:m.src, accountNumber:tm.accountNo).save(flush:true)
+		}
 	}
 }
