@@ -12,6 +12,8 @@ class MessageController {
         render(contentType: "application/json") {
             payload("success" : "$status")
         }
+
+
     }
 	
 	def register = {
