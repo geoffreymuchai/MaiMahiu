@@ -11,4 +11,8 @@ class Utility {
     static constraints = {
         name(nullable: false)
     }
+
+    String toString() {
+        return "${name}"
+    }
 }

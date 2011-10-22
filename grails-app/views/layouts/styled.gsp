@@ -5,7 +5,6 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="content-language" content="en" />
     <link rel="stylesheet" href="${resource(dir:'css', file:'style.css')}" />
-    <link rel="stylesheet" href="${resource(dir:'css', file: 'style.old.css')}" />
     <title>VoiceH20 : Bring out your water issues</title>
 </head>
 
@@ -23,6 +22,7 @@
             %{--<a href="#">About us</a> <span>|</span>--}%
             %{--<a href="#"></a> <span>|</span>--}%
             <a href="#">Contact</a>
+            <g:link controller="auth">Login</g:link>
         </div> <!-- /nav -->
 
     </div> <!-- /header -->
@@ -62,26 +62,26 @@
 
     <g:layoutBody/>
 
-    %{--<!-- Footer -->--}%
-    %{--<div id="footer">--}%
+    <!-- Footer -->
+    <div id="footer">
 
-      %{--<div id="col" class="box">--}%
-          %{--<!-- /ribbon (design/ribbon.gif) -->--}%
-          %{--<!-- Screenshot in browser (replace tmp/browser.gif) -->--}%
-          %{--<div id="col-text">--}%
-            %{--<h2 id="slogan"><span></span>Place for your slogan.</h2>--}%
-            %{--<p>Lorem ipsum dolor sit amet, <strong>consectetuer adipiscing</strong> elit. Nunc feugiat. In a massa. In feugiat pharetra lacus.--}%
-              %{--In non arcu nec libero pharetra rutrum. Curabitur hendrerit <a href="#">elementum diam</a>. Vestibulum mattistae sapien eu <a href="#">vehicula accumsan</a>,--}%
-              %{--erat quam porttitor orci, id ornare est eros et arcu. In odio. Morbi eu nisia et dolor dictum elementum. Vivamus commodo sodales felis.--}%
-              %{--Nulla gravida tristique metus.</p>--}%
-            %{--<p id="btns"> <a href="#"><img src="images/btn-tell.gif" alt="" /></a></p>--}%
-        %{--</div>--}%
-          %{--<!-- /col-text -->--}%
-      %{--</div>--}%
-      %{--<p>&nbsp;</p>--}%
-      %{--<p>Copyright &copy;&nbsp;2008 <strong><a href="#">Your Name</a></strong>, All Rights Reserved &reg;</p>--}%
+      <div id="col" class="box">
+          <!-- /ribbon (design/ribbon.gif) -->
+          <!-- Screenshot in browser (replace tmp/browser.gif) -->
+          <div id="col-text">
+            <h2 id="slogan"><span></span>Place for your slogan.</h2>
+            <p>Lorem ipsum dolor sit amet, <strong>consectetuer adipiscing</strong> elit. Nunc feugiat. In a massa. In feugiat pharetra lacus.
+              In non arcu nec libero pharetra rutrum. Curabitur hendrerit <a href="#">elementum diam</a>. Vestibulum mattistae sapien eu <a href="#">vehicula accumsan</a>,
+              erat quam porttitor orci, id ornare est eros et arcu. In odio. Morbi eu nisia et dolor dictum elementum. Vivamus commodo sodales felis.
+              Nulla gravida tristique metus.</p>
+            <p id="btns"> <a href="#"><img src="images/btn-tell.gif" alt="" /></a></p>
+        </div>
+          <!-- /col-text -->
+      </div>
+      <p>&nbsp;</p>
+      <p>Copyright &copy;&nbsp;2008 <strong><a href="#">Your Name</a></strong>, All Rights Reserved &reg;</p>
 
-    %{--</div> <!-- /footer -->--}%
+    </div> <!-- /footer -->
 
 </div> <!-- /main -->
 

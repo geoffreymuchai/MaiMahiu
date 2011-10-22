@@ -12,4 +12,8 @@ class Customer {
     String phoneNumber
 	String name
 	String referenceNo
+
+    String toString() {
+        return "${accountNumber}"
+    }
 }

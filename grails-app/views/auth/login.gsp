@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="layout" content="main" />
+  <meta name="layout" content="styled" />
   <title>Login</title>
 </head>
 <body>
@@ -9,7 +9,8 @@
     <div class="message">${flash.message}</div>
   </g:if>
   <g:form action="signIn">
-    <input type="hidden" name="targetUri" value="${targetUri}" />
+    %{--<input type="hidden" name="targetUri" value="${targetUri}" />--}%
+    <input type="hidden" name="targetUrl" value="<g:link controller="home" />" />
     <table>
       <tbody>
         <tr>

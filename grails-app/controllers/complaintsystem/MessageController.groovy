@@ -30,7 +30,7 @@ class MessageController {
 		def utility
 
 		if(tm) {
-			if(Customer.findByPhoneNumber(m.src)){
+			if(Customer.findByPhoneNumber(m.src) != null){
 				customer = Customer.findByPhoneNumber(m.src)
 			}else {
 				customer = new Customer(phoneNumber:m.src, accountNumber:tm?.accNo).save(flush:true, failOnError:true)
@@ -66,7 +66,7 @@ class MessageController {
 		println "$message size is ${tm.size()}"
 		if(tm.size() == 1) {
 			[]
-		}else if(tm.size() > 3)
+		}else if(tm.size() >= 3)
             [accNo: tm[0], location: tm[1], complaint:tm[2]]
         else
             [accNo: tm[0], complaint:tm[2]]
