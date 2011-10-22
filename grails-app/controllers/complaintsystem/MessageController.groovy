@@ -4,16 +4,20 @@ class MessageController {
 
     def scaffold = true
 
-    def receive = { RecipientCommand rc ->
-		rc.from = params.from
-		rc.message = params.message
+    def receive = {
 
-        def message = new Message(src: rc.from, message: rc.message).save(flush:true)
-        render ""
+        def message = new Message(src: params.from, message: params.message).save(flush:true)
+
+//        def customer
+
+
+        render(contentType: "application/json") {
+            payload("success" : "true")
+        }
     }
 }
 
-class RecipientCommand {
-    String from
-    String message
-}
+//class RecipientCommand {
+//    String from
+//    String message
+//}
