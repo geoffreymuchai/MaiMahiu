@@ -22,6 +22,7 @@ class MessageController {
 	}
 
 	def processMessage(Message m) {
+
 		
 	}
 }
