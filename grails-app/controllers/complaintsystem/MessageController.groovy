@@ -30,22 +30,16 @@ class MessageController {
 		def utility
 
 		if(tm) {
-			if(!Customer.findByPhoneNumber(m.src)){
+			if(Customer.findByPhoneNumber(m.src)){
 				customer = Customer.findByPhoneNumber(m.src)
 			}else {
 				customer = new Customer(phoneNumber:m.src, accountNumber:tm?.accNo).save(flush:true, failOnError:true)
 			}
-			println "customer ${customer.phoneNumber}"
 			
 			if(tm?.location)
 				utility= Utility.findByLocation(tm.location)
 			//setComplains(complaint, m)
-			println "customer ${customer} ,utility: $utility, content: ${tm?.complaint}"
-			complaint = new Complaint(affects:customer, content: tm?.complaint, source:m).save(flush:true, failOnError:true)
-			println "Complaint utilities: ${complaint.utitlity}"
-			println "complaint customer: ${complaint.affects}"
-			println "Complaint types ${complaint.type}"
-			println "complaint created"
+			complaint = new Complaint(affects:customer, content: tm?.complaint, source:m).save(flush:true)
 		} else {
 
 		}
