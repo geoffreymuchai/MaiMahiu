@@ -5,7 +5,7 @@ class Complaint {
     static constraints = {
     }
 
-//    String complaintText
+    String content
 
     static belongsTo = [type: ComplaintType, affects: Customer, utility: Utility, source: Message]
 }

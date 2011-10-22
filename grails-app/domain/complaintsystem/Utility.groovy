@@ -9,6 +9,6 @@ class Utility {
     //so even if we reverse geocode it wont be that simple
 	
     static constraints = {
-        name(nullable: false, )
+        name(nullable: false)
     }
 }
