@@ -12,15 +12,31 @@ class MessageController {
         render(contentType: "application/json") {
             payload("success" : "$status")
         }
-
-
     }
 	
 	def register = {
 		def registrationMessage = "Please register in this format: [Fixed Address or Main Road], [Birth Year], [1 for Consumer, 2 for Vendor], [Account Number or 0000 if purchasing from vendor]"
-		def send = [success: "true", task: "send", message:registrationMessage]
+		sendResponseAsJson(registrationMessage)
+	}
+
+	def sendResponseAsJson(message) {
+		def send = [success: "true", task: "send", messages:message]
 		def payload = [payload:send]
 		render payload as JSON
+	}
+
+	def reply = {
+		def registeredComplaints = Complaint.findAllByStatus("New")
+		println "registered Complaints are $registeredComplaints"
+		def messages = []
+
+		registeredComplaints.collect {
+			messages << [to: it.affects.phoneNumber, message: "Thanks you for registering your complaint. Your complaint reference number is ${it.ticketNumber}"]
+			it.status = "Viewed"
+			it.save(flush:true)
+		}
+		sendResponseAsJson(messages)
+		
 	}
 
 	def processMessage(Message m) {
@@ -36,12 +52,23 @@ class MessageController {
 				customer = new Customer(phoneNumber:m.src, accountNumber:tm?.accNo).save(flush:true, failOnError:true)
 			}
 			
-			if(tm?.location)
+			if(tm?.location) {
 				utility= Utility.findByLocation(tm.location)
-			complaint = new Complaint(affects:customer, content: tm?.complaint, source:m, utility: utility).save(flush:true)
-			setComplains(complaint, tm.complaint)
+			}
+
+			//generate ticket number
+			def random = new Random()
+			def ticketNumber = random.nextInt(100000)
+			while(Complaint.findByTicketNumber(ticketNumber)) {
+				println "running"
+				ticketNumber = random.nextInt(100000)
+			}
+			complaint = new Complaint(affects:customer, content: tm?.complaint, source:m, utility: utility, ticketNumber: ticketNumber).save(flush:true, failOnError:true)
+			setComplains(complaint, tm.complaint.toLowerCase())
+			println "complaint ticket number is ${complaint.ticketNumber}"
+			complaint
 		} else {
-			[]
+			sendResponseAsJson("Error in message format")
 		}
 		
 	}
@@ -52,7 +79,7 @@ class MessageController {
 			if(!found) {
 				def tagList = ct?.tags?.tokenize(",")
 				tagList.collect {
-					if(message.contains(it)) {
+					if(message.contains(it.toLowerCase())) {
 						complaint.setType(ct)
 						found = true
 					}
@@ -63,7 +90,6 @@ class MessageController {
 
 	def splitMessage(message) {
         def tm = message.tokenize("#")
-		println "$message size is ${tm.size()}"
 		if(tm.size() == 1) {
 			[]
 		}else if(tm.size() >= 3)
