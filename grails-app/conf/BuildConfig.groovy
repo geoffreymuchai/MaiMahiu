@@ -24,8 +24,26 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.jboss.com/maven2/"
     }
     dependencies {
+//        compile('org.springframework.security:org.springframework.security.core:3.0.2.RELEASE') {
+//            excludes 'com.springsource.org.aopalliance',
+//                    'com.springsource.org.apache.commons.logging',
+//                    'org.springframework.beans',
+//                    'org.springframework.context',
+//                    'org.springframework.core'
+//        }
+//
+//        compile('org.springframework.security:org.springframework.security.web:3.0.2.RELEASE') {
+//            excludes 'com.springsource.javax.servlet',
+//                    'com.springsource.org.aopalliance',
+//                    'com.springsource.org.apache.commons.logging',
+//                    'org.springframework.aop',
+//                    'org.springframework.beans',
+//                    'org.springframework.context',
+//                    'org.springframework.core',
+//                    'org.springframework.web'
+//        }
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
-        // runtime 'mysql:mysql-connector-java:5.1.13'
+        // runtime 'mysql:mysql-connector-java:5.1.5'
     }
 }

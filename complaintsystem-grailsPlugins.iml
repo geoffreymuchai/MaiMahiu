@@ -1,17 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="web" name="GrailsWeb">
+      <configuration>
+        <webroots />
+        <sourceRoots />
+      </configuration>
+    </facet>
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$USER_HOME$/.grails/1.3.7/projects/complaintsystem/plugins/hibernate-1.3.7">
-      <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/complaintsystem/plugins/hibernate-1.3.7/target/classes" />
-      <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/complaintsystem/plugins/hibernate-1.3.7/target/test-classes" />
-      <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/complaintsystem/plugins/hibernate-1.3.7/web-app/plugins" />
+    <content url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/hibernate-1.3.7">
+      <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/hibernate-1.3.7/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/hibernate-1.3.7/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/hibernate-1.3.7/web-app/plugins" />
     </content>
-    <content url="file://$USER_HOME$/.grails/1.3.7/projects/complaintsystem/plugins/tomcat-1.3.7">
-      <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/complaintsystem/plugins/tomcat-1.3.7/src/groovy" isTestSource="false" />
-      <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/complaintsystem/plugins/tomcat-1.3.7/target/classes" />
-      <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/complaintsystem/plugins/tomcat-1.3.7/target/test-classes" />
-      <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/complaintsystem/plugins/tomcat-1.3.7/web-app/plugins" />
+    <content url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/shiro-1.1.3">
+      <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/shiro-1.1.3/src/java" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/shiro-1.1.3/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/shiro-1.1.3/grails-app/services" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/shiro-1.1.3/grails-app/taglib" isTestSource="false" />
+      <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/shiro-1.1.3/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/shiro-1.1.3/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/shiro-1.1.3/web-app/plugins" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/tomcat-1.3.7">
+      <sourceFolder url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/tomcat-1.3.7/src/groovy" isTestSource="false" />
+      <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/tomcat-1.3.7/target/classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/tomcat-1.3.7/target/test-classes" />
+      <excludeFolder url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/tomcat-1.3.7/web-app/plugins" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -19,11 +36,20 @@
     <orderEntry type="module-library" exported="">
       <library name="Grails User Library (complaintsystem-grailsPlugins)">
         <CLASSES>
-          <root url="file://$USER_HOME$/.grails/1.3.7/projects/complaintsystem/plugins/tomcat-1.3.7/lib" />
+          <root url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/tomcat-1.3.7/lib" />
+          <root url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/shiro-1.1.3/lib" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.shiro/shiro-spring/bundles/shiro-spring-1.1.0.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.opensymphony.quartz/quartz/jars/quartz-1.6.1.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.shiro/shiro-quartz/bundles/shiro-quartz-1.1.0.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.shiro/shiro-ehcache/bundles/shiro-ehcache-1.1.0.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.shiro/shiro-web/bundles/shiro-web-1.1.0.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/commons-beanutils/commons-beanutils/jars/commons-beanutils-1.8.3.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.shiro/shiro-core/bundles/shiro-core-1.1.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$USER_HOME$/.grails/1.3.7/projects/complaintsystem/plugins/tomcat-1.3.7/lib" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/shiro-1.1.3/lib" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/.grails/1.3.7/projects/MaiMahiu/plugins/tomcat-1.3.7/lib" recursive="false" />
       </library>
     </orderEntry>
   </component>

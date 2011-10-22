@@ -88,3 +88,18 @@ log4j = {
 
     warn   'org.mortbay.log'
 }
+
+// Added by the Spring Security Core plugin:
+//grails.plugins.springsecurity.userLookup.userDomainClassName = 'complaintsystem.SecUser'
+//grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'complaintsystem.SecUserSecRole'
+//grails.plugins.springsecurity.authority.className = 'complaintsystem.SecRole'
+
+
+//grails.plugins.springsecurity.securityConfigType = SecurityConfigType.InterceptUrlMap
+//grails.plugins.springsecurity.interceptUrlMap = [
+////    '/timeline':         ['ROLE_USER'],
+////    '/person/*':         ['IS_AUTHENTICATED_REMEMBERED'],
+////    '/post/followAjax':  ['ROLE_USER'],
+////    '/post/addPostAjax': ['ROLE_USER', 'IS_AUTHENTICATED_FULLY'],
+//    '/**':               ['IS_AUTHENTICATED_FULLY']
+//]

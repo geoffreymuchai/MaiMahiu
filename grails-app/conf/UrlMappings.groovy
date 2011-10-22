@@ -9,6 +9,7 @@ class UrlMappings {
 
 		"/"(view:"/index")
 		"500"(view:'/error')
-//        "/smssync" (controller: "M")
-	}
+//        "/logout/$action?"(controller: "logout")
+//        "/login/$action?"(controller: "login")
+    }
 }
