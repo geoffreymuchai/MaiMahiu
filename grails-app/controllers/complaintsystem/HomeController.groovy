@@ -1,5 +1,6 @@
 package complaintsystem
 
+
 import org.apache.shiro.SecurityUtils
 
 class HomeController {
@@ -10,6 +11,9 @@ class HomeController {
 
         def user = ShiroUser.findByUsername(primaryPrincipal)
 
-        render(view: 'utility', model: [utilityInstance: user])
+        def complaints = Complaint.findAllByUtility(user.utility)
+
+        render(view: 'utility', model: [utilityInstance: user, complaintInstanceList: complaints])
+
     }
 }

@@ -18,7 +18,7 @@
 
         <!-- Navigation -->
         <div id="nav">
-            <a href="#" id="nav-active">Home</a> <span>|</span>
+            <a href="/home" id="nav-active">Home</a> <span>|</span>
             %{--<a href="#">About us</a> <span>|</span>--}%
             %{--<a href="#"></a> <span>|</span>--}%
             <a href="#">Contact</a>
@@ -30,12 +30,12 @@
   <div id="tray">
 
         <ul>
-            <li id="tray-active"><a href="#">Home</a></li> <!-- Active page -->
-            <li><a href="#">Live demo</a></li>
-            <li><a href="#">About product</a></li>
-            <li><a href="#">Testimonials</a></li>
-            <li><a href="#">Download</a></li>
-            <li><a href="#">Purchase</a></li>
+            <li id="tray-active"><a href="/home">Home</a></li> <!-- Active page -->
+            %{--<li><a href="#">Live demo</a></li>--}%
+            %{--<li><a href="#">About product</a></li>--}%
+            %{--<li><a href="#">Testimonials</a></li>--}%
+            %{--<li><a href="#">Download</a></li>--}%
+            %{--<li><a href="#">Purchase</a></li>--}%
         </ul>
         
         <!-- Search -->

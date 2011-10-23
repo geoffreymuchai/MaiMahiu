@@ -31,12 +31,12 @@
   <div id="tray">
 
         <ul>
-            <li id="tray-active"><a href="#">Home</a></li> <!-- Active page -->
-            <li><a href="#">Live demo</a></li>
-            <li><a href="#">About product</a></li>
-            <li><a href="#">Testimonials</a></li>
-            <li><a href="#">Download</a></li>
-            <li><a href="#">Purchase</a></li>
+            %{--<li id="tray-active"><a href="">Home</a></li> <!-- Active page -->--}%
+            %{--<li><a href="#">Live demo</a></li>--}%
+            %{--<li><a href="#">About product</a></li>--}%
+            %{--<li><a href="#">Testimonials</a></li>--}%
+            %{--<li><a href="#">Download</a></li>--}%
+            %{--<li><a href="#">Purchase</a></li>--}%
         </ul>
 
         <!-- Search -->

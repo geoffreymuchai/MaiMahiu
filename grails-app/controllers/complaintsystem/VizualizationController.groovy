@@ -4,6 +4,7 @@ class VizualizationController {
 
     def dashboard = {
 
+//        def ctrl = new complaintsystem.HomeController()
         def numComplaints = Complaint.count()
 //        import complaintsystem.*
 //

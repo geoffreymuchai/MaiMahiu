@@ -1,6 +1,7 @@
 import complaintsystem.ComplaintType
 import complaintsystem.Utility
 import org.apache.shiro.crypto.hash.Sha256Hash
+import complaintsystem.ShiroUser
 //import complaintsystem.SecRole
 //import complaintsystem.SecUser
 //import complaintsystem.SecUserSecRole
