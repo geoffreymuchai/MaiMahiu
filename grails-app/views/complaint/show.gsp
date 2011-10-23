@@ -81,7 +81,7 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="complaint.resolvedDate.label" default="Resolved Date" /></td>
                             
-                            <td valign="top" class="value"><g:formatDate date="${complaintInstance?.resolvedDate}" /></td>
+                            <td valign="top" class="value"><g:formatDate date="${complaintInstance?.dateResolved}" /></td>
                             
                         </tr>
                     

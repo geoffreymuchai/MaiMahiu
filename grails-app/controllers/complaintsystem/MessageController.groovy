@@ -26,16 +26,26 @@ class MessageController {
 	}
 
 	def reply = {
-		def registeredComplaints = Complaint.findAllByStatus("New")
-		println "registered Complaints are $registeredComplaints"
-		def messages = []
+//		def registeredComplaints = Complaint.findAllByStatus("New")
+//		println "registered Complaints are $registeredComplaints"
+//		def messages = []
+//
+//		registeredComplaints.collect {
+//			messages << [to: it.affects.phoneNumber, message: "Thanks you for registering your complaint. Your complaint reference number is ${it.ticketNumber}"]
+//			it.status = "Viewed"
+//			it.save(flush:true)
+//		}
+//		sendResponseAsJson(messages)
 
-		registeredComplaints.collect {
-			messages << [to: it.affects.phoneNumber, message: "Thanks you for registering your complaint. Your complaint reference number is ${it.ticketNumber}"]
-			it.status = "Viewed"
-			it.save(flush:true)
-		}
-		sendResponseAsJson(messages)
+        def responses = Response.findAllByStatus("Pending")
+        def messages = []
+        responses.collect {
+            messages << [to: it.phoneNumber, message: it.message]
+            it.status = "Sent"
+            it.save(flush: true)
+        }
+        sendResponseAsJson(messages)
+
 		
 	}
 
@@ -66,6 +76,9 @@ class MessageController {
 			complaint = new Complaint(affects:customer, content: tm?.complaint, source:m, utility: utility, ticketNumber: ticketNumber).save(flush:true, failOnError:true)
 			setComplains(complaint, tm.complaint.toLowerCase())
 			println "complaint ticket number is ${complaint.ticketNumber}"
+
+            def response = new Response(phoneNumber: m.src, message: "Thanks you for registering your complaint. Your complaint reference number is ${complaint.ticketNumber}").save(flush: true, failOnError: true)
+            println "Response is ${response}"
 			complaint
 		} else {
 			sendResponseAsJson("Error in message format")

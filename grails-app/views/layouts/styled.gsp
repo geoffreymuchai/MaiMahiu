@@ -12,6 +12,12 @@
 
 <body>
 
+
+<%@ page import="complaintsystem.SecurityService" %>
+<%
+    def securityService = grailsApplication.classLoader.loadClass('complaintsystem.SecurityService').newInstance()
+%>
+
 <div id="main">
     <!-- Header -->
     <div id="header">
@@ -24,7 +30,12 @@
             %{--<a href="#">About us</a> <span>|</span>--}%
             %{--<a href="#"></a> <span>|</span>--}%
             %{--<a href="#">Contact</a>--}%
-            <g:link controller="auth">Login</g:link>
+            <g:if test="${securityService.isLoggedIn()}">
+                <g:link controller="auth" action="signOut">Logout</g:link>
+            </g:if>
+            <g:else>
+                <g:link controller="auth">Login</g:link>
+            </g:else>
         </div> <!-- /nav -->
 
     </div> <!-- /header -->
