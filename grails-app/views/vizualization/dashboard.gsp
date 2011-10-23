@@ -106,6 +106,18 @@
 
             <hr class="noscreen" />
         </div>
+	  <div>
+			<h3>Voice h20 "Bring out your Water Issues"</h3>
+
+			How to use the system:
+			This system is designed to allow all users in this case customers, water service providers, water utility organizations be able to see the complaints arising in this sector, and get feedback.
+			It is open. Anyone wishing to use the system can do the following: <br>
+			1.Send a complaint message to the number [0705-866-564] in the format account number # location # complaint.
+			<br>
+			(for example [82931#kikuyu# burst pipe])
+			<br>
+			2.For any additional queries, you can email us at voiceh20@water.net
+	  </div>
 
     </body>
 </html>
