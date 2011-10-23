@@ -10,7 +10,7 @@ class Complaint {
 		content(nullable:false)
 		status(nullable:true, inList: ["New", "Viewed", "Resolved"])
 		ticketNumber(nullable:false, unique:true)
-		resolvedDate(nullable:true, blank:true)
+		dateResolved(nullable:true, blank:true)
     }
 
 	def beforeInsert = {
@@ -20,7 +20,8 @@ class Complaint {
     String content
     String status
 	String ticketNumber
-    Date resolvedDate
+    Date dateResolved
+	Date dateCreated
     static belongsTo = [type: ComplaintType, affects: Customer, utility: Utility, source: Message]
 }
 
