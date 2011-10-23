@@ -22,9 +22,13 @@ class MessageController {
         {
             def message = new Message(src: params.from, message: params.message).save(flush:true)
 
-            if (Complaint.findByTicketNumber(params.from)) {
-                def complaint = Complaint.findByTicketNumber(params.from)
+            if (Complaint.findByTicketNumber(params.message)) {
+                def complaint = Complaint.findByTicketNumber(params.message)
+//                def text = "Thanks for your enquiry. "
                 def response = new Response(phoneNumber: params.from, message: "Thanks for your enquiry. Your ticket status is ${complaint.status}.", status: "Pending").save()
+                render(contentType: "application/json") {
+                    payload("success": "$status")
+                }
             }
             else
             {
