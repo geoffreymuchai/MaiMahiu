@@ -10,6 +10,7 @@ class Complaint {
 		content(nullable:false)
 		status(nullable:true, inList: ["New", "Viewed", "Resolved"])
 		ticketNumber(nullable:false, unique:true)
+		resolvedDate(nullable:true, blank:true)
     }
 
 	def beforeInsert = {

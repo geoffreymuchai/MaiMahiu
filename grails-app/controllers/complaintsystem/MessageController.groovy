@@ -95,7 +95,7 @@ class MessageController {
 		}else if(tm.size() >= 3)
             [accNo: tm[0], location: tm[1], complaint:tm[2]]
         else
-            [accNo: tm[0], complaint:tm[2]]
+            [accNo: tm[0], complaint:tm[1]]
 
     }
 }
