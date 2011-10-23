@@ -12,10 +12,17 @@
 
 <body>
 
+
+<%@ page import="complaintsystem.SecurityService" %>
+<%
+    def securityService = grailsApplication.classLoader.loadClass('complaintsystem.SecurityService').newInstance()
+%>
+
 <div id="main">
     <!-- Header -->
     <div id="header">
-        <h1 id="logo">Logo goes here</h1>
+
+        <img src="${resource(dir:'images', file: 'logo.jpg')}" />
         <hr class="noscreen" />
 
         <!-- Navigation -->
@@ -24,7 +31,12 @@
             %{--<a href="#">About us</a> <span>|</span>--}%
             %{--<a href="#"></a> <span>|</span>--}%
             %{--<a href="#">Contact</a>--}%
-            <g:link controller="auth">Login</g:link>
+            <g:if test="${securityService.isLoggedIn()}">
+                <g:link controller="auth" action="signOut">Logout</g:link>
+            </g:if>
+            <g:else>
+                <g:link controller="auth">Login</g:link>
+            </g:else>
         </div> <!-- /nav -->
 
     </div> <!-- /header -->
@@ -33,12 +45,15 @@
   <div id="tray">
 
         <ul>
-            <li id="tray-active"><g:link controller="home">Home</g:link> </li> <!-- Active page -->
+            <li><g:link controller="home">Home</g:link> </li> <!-- Active page -->
             %{--<li><a href="#">Live demo</a></li>--}%
             %{--<li><a href="#">About product</a></li>--}%
             %{--<li><a href="#">Testimonials</a></li>--}%
             %{--<li><a href="#">Download</a></li>--}%
             %{--<li><a href="#">Purchase</a></li>--}%
+            <g:if test="${securityService.isWasrebUser()}">
+                <li><g:link controller="utility">Utilities</g:link></li>
+            </g:if>
         </ul>
 
         <!-- Search -->
@@ -46,7 +61,7 @@
             <form action="#" method="get">
                 <div class="box">
                     <div id="search-input"><span class="noscreen">Search:</span><input type="text" size="30" name="" value="Search" /></div>
-                    <div id="search-submit"><input type="image" src="images/search-submit.gif" value="OK" /></div>
+                    <div id="search-submit"><input type="image" src="${resource(dir:'images', file: 'search-submit.gif')}" value="OK" /></div>
                 </div>
             </form>
 

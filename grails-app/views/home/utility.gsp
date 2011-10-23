@@ -14,21 +14,24 @@
 		<div class="list">
 			<table>
 				<thead>
-				<tr>
+				<tr style="text-align: left">
 
 					%{--<g:sortableColumn property="id" title="${message(code: 'complaint.id.label', default: 'Id')}"/>--}%
 
 					<th><g:message code="complaint.id.label" default="Reference"/></th>
 					<th><g:message code="complaint.type.label" default="Type"/></th>
 
-					<th><g:message code="complaint.affects.label" default="Affects"/></th>
+					<th><g:message code="complaint.affects.label" default="Affects Customer"/></th>
 
-					<th><g:message code="complaint.utility.label" default="Utility"/></th>
+					%{--<th><g:message code="complaint.utility.label" default="Utility"/></th>--}%
 
-					<th><g:message code="complaint.source.label" default="Source"/></th>
+					%{--<th><g:message code="complaint.source.label" default="Source"/></th>--}%
 
-					<g:sortableColumn property="content"
-									  title="${message(code: 'complaint.content.label', default: 'Content')}"/>
+                    <th>Content</th>
+
+                    <th>Status</th>
+					%{--<g:sortableColumn property="content"--}%
+									  %{--title="${message(code: 'complaint.content.label', default: 'Content')}"/>--}%
 
 				</tr>
 				</thead>
@@ -36,18 +39,19 @@
 				<g:each in="${complaintInstanceList}" status="i" var="complaintInstance">
 					<tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                    <td><g:link action="show" controller="complaint"
+                    <td><g:link action="edit" controller="complaint"
                                 id="${complaintInstance.id}">${fieldValue(bean: complaintInstance, field: "ticketNumber")}</g:link></td>
 						<td>${fieldValue(bean: complaintInstance, field: "type")}</td>
 
 						<td>${fieldValue(bean: complaintInstance, field: "affects")}</td>
 
-						<td>${fieldValue(bean: complaintInstance, field: "utility")}</td>
+						%{--<td>${fieldValue(bean: complaintInstance, field: "utility")}</td>--}%
 
-						<td>${fieldValue(bean: complaintInstance, field: "source")}</td>
+						%{--<td>${fieldValue(bean: complaintInstance, field: "source")}</td>--}%
 
 						<td>${fieldValue(bean: complaintInstance, field: "content")}</td>
 
+                        <td>${fieldValue(bean: complaintInstance, field: "status")}</td>
 					</tr>
 				</g:each>
 				</tbody>
