@@ -17,8 +17,10 @@ class CommentController {
 
     def create = {
         def commentInstance = new Comment()
+		println "params- $params"
+		def complaint = Complaint.findById(params.complaintId)
         commentInstance.properties = params
-        return [commentInstance: commentInstance]
+        return [commentInstance: commentInstance, complaint: complaint]
     }
 
     def save = {
@@ -30,10 +32,10 @@ class CommentController {
         def user = ShiroUser.findByUsername(primaryPrincipal)
 
         commentInstance.user = user
-
+		commentInstance.complaint = Complaint.findById(params.complaintId)
         if (commentInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'comment.label', default: 'Comment'), commentInstance.id])}"
-            redirect(action: "show", id: commentInstance.id)
+            redirect(controller: "complaint", action: "resolve", id: Complaint.findById(params.complaintId).id)
         }
         else {
             render(view: "create", model: [commentInstance: commentInstance])

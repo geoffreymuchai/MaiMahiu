@@ -25,6 +25,7 @@ class SecurityService {
         def primaryPrincipal = currentUser.principal.toString()
 
         def user = ShiroUser.findByUsername(primaryPrincipal)
+		user
     }
 
     boolean isLoggedIn() {

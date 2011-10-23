@@ -11,3 +11,8 @@ if (Ajax && (Ajax != null)) {
 	  }
 	});
 }
+
+function addCommentAndResolve(id) {
+	var complaintId = id
+	var form = "<textarea name="comment" id="comment"> </textarea>"
+}

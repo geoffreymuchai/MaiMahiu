@@ -39,7 +39,7 @@
                     </td>
                 </tr>
 
-                <g:hiddenField name="complaint.id" value="${commentInstance?.complaint?.id}"/>
+                <g:hiddenField name="complaintId" value="${commentInstance?.complaint?.id ?: complaint?.id}"/>
 
                 %{--<tr class="prop">--}%
                     %{--<td valign="top" class="name">--}%

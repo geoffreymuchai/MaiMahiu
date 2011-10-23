@@ -56,7 +56,7 @@
 
 									<td>${fieldValue(bean: complaintInstance, field: "content")}</td>
 
-									<td><g:link controller="complaint" id="${complaintInstance.id}" action="resolve">Resolve</g:link></td>
+									<td><g:link controller="comment" params="[complaintId:complaintInstance.id]" action="create">Resolve</g:link></td>
 
 								</tr>
 							</g:each>
@@ -87,10 +87,9 @@
 
 							  <th><g:message code="complaint.utility.label" default="Utility"/></th>
 
-							  <th><g:message code="complaint.source.label" default="Source"/></th>
-
 							  <g:sortableColumn property="content"
 												title="${message(code: 'complaint.content.label', default: 'Content')}"/>
+							  <th>Comments</th>
 
 						  </tr>
 						  </thead>
@@ -107,9 +106,10 @@
 
 								  <td>${fieldValue(bean: complaintInstance, field: "utility")}</td>
 
-								  <td>${fieldValue(bean: complaintInstance, field: "source")}</td>
-
 								  <td>${fieldValue(bean: complaintInstance, field: "content")}</td>
+								  <td>
+									  ${complaintInstance?.comments}
+								  </td>
 
 							  </tr>
 						  </g:each>
