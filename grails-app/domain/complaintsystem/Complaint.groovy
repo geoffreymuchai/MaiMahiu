@@ -19,6 +19,7 @@ class Complaint {
     String content
     String status
 	String ticketNumber
+    Date resolvedDate
     static belongsTo = [type: ComplaintType, affects: Customer, utility: Utility, source: Message]
 }
 

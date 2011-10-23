@@ -19,7 +19,7 @@
 
         <!-- Navigation -->
         <div id="nav">
-            <a href="#" id="nav-active">Home</a> <span>|</span>
+            <g:link controller="home">Home</g:link>
             %{--<a href="#">About us</a> <span>|</span>--}%
             %{--<a href="#"></a> <span>|</span>--}%
             <a href="#">Contact</a>

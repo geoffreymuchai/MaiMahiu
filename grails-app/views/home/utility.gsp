@@ -15,8 +15,9 @@
             <thead>
             <tr>
 
-                <g:sortableColumn property="id" title="${message(code: 'complaint.id.label', default: 'Id')}"/>
+                %{--<g:sortableColumn property="id" title="${message(code: 'complaint.id.label', default: 'Id')}"/>--}%
 
+                %{--<th><g:message code="complaint.id.label" d/></th>--}%
                 <th><g:message code="complaint.type.label" default="Type"/></th>
 
                 <th><g:message code="complaint.affects.label" default="Affects"/></th>
@@ -34,8 +35,8 @@
             <g:each in="${complaintInstanceList}" status="i" var="complaintInstance">
                 <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                    <td><g:link action="show"
-                                id="${complaintInstance.id}">${fieldValue(bean: complaintInstance, field: "id")}</g:link></td>
+                    %{--<td><g:link action="show" controller="complaint"--}%
+                                %{--id="${complaintInstance.id}">${fieldValue(bean: complaintInstance, field: "id")}</g:link></td>--}%
 
                     <td>${fieldValue(bean: complaintInstance, field: "type")}</td>
 

@@ -1,0 +1,245 @@
+
+body {margin:0; padding:0; border:0; font-size:12pt;}
+
+h1, h2, h3, h4, h5 {page-break-after:avoid; page-break-inside:avoid;}
+table {width:100%; border-collapse:collapse; border-spacing:0; border-top:0.5pt solid #000;}
+th, td {border-bottom:0.5pt solid #000;}
+blockquote {page-break-inside:avoid}
+ul, ol, dl {page-break-before:avoid}
+
+#main {width:100%;}
+#header {border-bottom:0.5pt solid #000;}
+#footer {border-top:0.5pt solid #000;}
+
+.noprint, .noscreen {display:none;}
+
+#tray, #nav, #col-browser, #btns, .col-more {}
+
+
+
+body {background:url("../images/bg.gif") 0 0 repeat-x; font:0.8em/1.5 "arial", sans-serif;}
+
+h1, h2, h3, h4, h5, h6, p, address, blockquote, table, dl, fieldset {margin:15px 0;}
+
+/* ----------------------------------------------------------------------------------------------------------
+2) HTML styles
+---------------------------------------------------------------------------------------------------------- */
+
+ul.ul-01 {margin:15px 0; list-style:none;}
+ul.ul-01 li {padding:2px 0 2px 25px; background:url("../images/ul-01.gif") 0 50% no-repeat; font-size:85%;}
+
+ul.ul-list {margin:15px 0; list-style:none;}
+ul.ul-list li {padding:1px 0;}
+ul.ul-list span.date {padding-right:10px;}
+
+/* ----------------------------------------------------------------------------------------------------------
+3) Layout
+---------------------------------------------------------------------------------------------------------- */
+
+#main {width:960px; margin:0 auto; overflow:hidden;}
+
+    #header {position:relative; height:90px; padding:30px 20px 15px 20px;}
+
+        #logo {margin:0;}
+    
+        #nav {position:absolute; top:80px; right:20px; margin:0;}
+        #nav span {margin:0 8px;}
+        #nav #nav-active {font-weight:bold; text-decoration:none;}
+    
+    #tray {position:relative; width:960px; height:45px; background:url("../images/tray.gif") 0 0 no-repeat; overflow:hidden; font:bold 90%/1 "tahoma",sans-serif;}
+    #tray ul {margin:0 20px; list-style:none;}
+    #tray li {display:inline;}
+    #tray li a {display:block; float:left; padding:17px 20px 17px 18px; background:url("../images/tray-separator.gif") 100% 0 no-repeat; text-decoration:none;}
+    #tray li a:hover {background:url("../images/tray-hover.gif");}
+    #tray li#tray-active a {background:url("../images/tray-active.gif");}
+
+        #search {position:absolute; top:8px; right:20px;}
+        #search div {position:relative; width:185px;}
+        
+        #search #search-input {position:absolute; top:0; left:0; width:150px; height:30px; background:url("../images/search-input.gif") 0 0 no-repeat; overflow:hidden;}
+        #search #search-input input {width:136px; margin:8px; border:0; font:100%/1 "arial",sans-serif;}
+        #search #search-submit {position:absolute; top:0; right:0; width:30px;}
+
+    #footer {clear:both; padding:20px 20px 40px 20px; font-size:85%;}
+    #footer p {margin:0;}
+
+/* ----------------------------------------------------------------------------------------------------------
+4-1) Page: Homepage
+---------------------------------------------------------------------------------------------------------- */
+
+#col-top {width:960px; height:5px; margin-top:15px; background:url("../images/col-top.gif") 0 0 no-repeat; font-size:0; line-height:0; overflow:hidden;}
+#col-bottom {width:960px; height:5px; margin-bottom:15px; background:url("../images/col-bottom.gif") 0 0 no-repeat; font-size:0; line-height:0; overflow:hidden;}
+#col {position:relative; padding:15px 30px 15px 20px; background:url("../images/col.gif") 0 0 repeat-y;}
+
+    #ribbon {
+	position:absolute;
+	top:747px;
+	left:43px;
+	width:933px;
+	height:262px;
+	background:url("../images/ribbon.gif") 0 0 no-repeat;
+	font-size:0;
+	line-height:0;
+	overflow:hidden;
+	z-index:10;
+}
+
+    #col-browser {position:relative; float:left; width:280px; height:215px; background:url("../images/browser.gif") 0 0 no-repeat;}
+    #col-browser img {position:absolute; top:28px; left:10px;}
+
+    #col-text {
+	float:left;
+	width:95%;
+	padding-top:15px;
+	line-height:1.7;
+}
+
+        #slogan {position:relative; width:289px; height:33px; overflow:hidden; margin:0; padding:0; font-size:180%;}
+        #slogan span {display:block; position:absolute; top:0; left:0; z-index:1; width:100%; height:100%; margin:0; padding:0; background:url("../tmp/slogan.gif") 0 0 no-repeat;}
+        #btns {margin-top:25px; margin-bottom:0;}
+
+#cols2-top {width:960px; height:5px; margin-top:15px; background:url("../images/cols2-top.gif") 0 0 no-repeat; font-size:0; line-height:0; overflow:hidden;}
+#cols2-bottom {width:960px; height:5px; margin-bottom:15px; background:url("../images/cols2-bottom.gif") 0 0 no-repeat; font-size:0; line-height:0; overflow:hidden;}
+#cols2 {background:url("../images/cols2.gif") 0 0 repeat-y;}
+
+    #cols2 #col-left {float:left; width:595px; padding:20px;}
+    #cols2 #col-right {float:right; width:268px; margin-right:1px; padding:20px;}
+    
+        #cols2 #col-left h4, #cols2 #col-right h4 {margin:0; font-size:100%;}
+        #cols2 #col-left .title {background:url("../images/dot.gif") 0 50% repeat-x;}
+        #cols2 #col-left .title h4 {display:inline; padding-right:10px;}
+        #cols2 #col-left .title span {padding-left:10px;}
+
+        #cols2 .box {margin-top:15px;}
+        #cols2 #col-right h4 {background:url("../images/dot-02.gif") 0 50% repeat-x;}
+        #cols2 #col-right h4 span {padding-right:10px;}
+        #cols2 .col-right-img {float:left; width:65px;}
+        #cols2 .col-right-text {float:right; width:190px;}
+        #cols2 .col-right-text p {margin:0;}
+
+#cols3-top {width:960px; height:5px; margin-top:15px; background:url("../images/cols3-top.gif") 0 0 no-repeat; font-size:0; line-height:0; overflow:hidden;}
+#cols3-bottom {width:960px; height:5px; margin-bottom:15px; background:url("../images/cols3-bottom.gif") 0 0 no-repeat; font-size:0; line-height:0; overflow:hidden;}
+#cols3 {background:url("../images/cols3.gif") 0 0 repeat-y;}
+
+    .col {
+	float:left;
+	width:308px;
+	margin-right:15px;
+	padding-top: 0;
+	padding-right: 1px;
+	padding-bottom: 0;
+	padding-left: 1px;
+}
+    .col.last {margin-right:0;}
+    .col h3 {margin:0; padding:7px 15px 12px 50px; background:url("../images/cols3-title.gif") 20px 40% no-repeat; font-size:120%;}
+
+        .col-text {padding:20px; border-top:1px solid #DFDFDF;}
+        .col-text p {margin:0;}
+        .col-text ul {margin-bottom:0;}
+        .col-more {padding:10px 10px 1px 0; text-align:right;}
+
+/* ----------------------------------------------------------------------------------------------------------
+5) Others
+---------------------------------------------------------------------------------------------------------- */
+
+.ico-comment {padding-left:18px; background:url("../images/ico-comment.gif") 0 50% no-repeat;}
+.ico-rss {padding-left:18px; background:url("../images/ico-rss.gif") 0 50% no-repeat;}
+
+.smaller {font-size:85%;}
+
+* {margin:0; padding:0;}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {border:0; outline:0; vertical-align:baseline; background:transparent;}
+
+/* ----------------------------------------------------------------------------------------------------------
+2) Format
+---------------------------------------------------------------------------------------------------------- */
+
+.noscreen {display:none;}
+
+.box {min-height:1px;}
+.box:after {display:block; visibility:hidden; clear:both; line-height:0; font-size:0; content:".";}
+
+.fix {float:none; clear:both; width:0; height:0; margin:0; padding:0; border:0; line-height:0; font-size:0;}
+
+.f-left {float:left !important;}
+.f-right {float:right !important;}
+
+.t-left {text-align:left !important;}
+.t-center {text-align:center !important;}
+.t-right {text-align:right !important;}
+.t-justify {text-align:justify !important;}
+
+.va-top {vertical-align:top !important;}
+.va-middle {vertical-align:middle !important;}
+.va-bottom {vertical-align:bottom !important;}
+
+.nom {margin:0 !important;}
+.nomt {margin-top:0 !important;}
+.nomb {margin-bottom:0 !important;}
+
+.hidden {position:absolute; left:-1000em; top:-1000em; width:1px; height:1px; overflow:hidden;}
+
+#logInButton
+{
+	width: 80px;
+}
+
+#logInPassword,#logUserName
+{
+	
+	width:150px;
+	margin-left:30px;
+}
+
+body {background-color:#fff; color:#404040}
+
+a {color:#404040;}
+a:hover {color:#000;}
+
+/* ----------------------------------------------------------------------------------------------------------
+2) HTML styles
+---------------------------------------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------------------------------------
+3) Layout
+---------------------------------------------------------------------------------------------------------- */
+
+    #nav span {color:#DDD;}
+    #nav #nav-active {color:#DD1600;}
+
+    #tray {background-color:#BFBFBF;}
+    #tray li a {color:#404040;}
+    #tray li#tray-active a {background-color:#DD1600; color:#FFF;}
+    #tray li a:hover {background-color:#9F9F9F; color:#FFF;}
+
+        #search #search-input {background-color:#FFF;}
+        #search #search-input input {color:#404040;}
+
+    #footer, #footer a {color:#9f9f9f;}
+    #footer a:hover {color:#404040;}
+
+/* ----------------------------------------------------------------------------------------------------------
+4-1) Page: Homepage
+---------------------------------------------------------------------------------------------------------- */
+
+#col-top, #col-bottom, #col {background-color:#E9FAFF;}
+
+#cols3 .col h3 {background-color:#F5F5F5; color:#DD1600;}
+#cols3 .col h3 a {color:#DD1600;}
+#cols3 .col h3 a:hover {color:#000;}
+#cols3 .col-more {background:#F5F5F5;}
+
+#cols2 #col-left .title h4, #cols2 #col-right h4 {color:#DD1600;}
+#cols2 #col-left .title h4, #cols2 #col-left .title span {background-color:#FFF;}
+#cols2 #col-left .article {color:#DD1600;}
+#cols2 #col-left a:hover.article {color:#000;}
+
+#cols2 #col-right {background-color:#F5F5F5;}
+#cols2 #col-right h4 span {background-color:#F5F5F5;}
+
+/* ----------------------------------------------------------------------------------------------------------
+5) Others
+---------------------------------------------------------------------------------------------------------- */
+
+.high {color:#777}
