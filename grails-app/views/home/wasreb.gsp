@@ -32,10 +32,12 @@
 
 								<th><g:message code="complaint.utility.label" default="Utility"/></th>
 
-								 <th></th>
-
 								<g:sortableColumn property="content"
 												  title="${message(code: 'complaint.content.label', default: 'Content')}"/>
+
+								<th><g:message code="complaint.datecreated.label" default="Date Reported"/></th>
+
+								 <th></th>
 
 							</tr>
 							</thead>
@@ -55,6 +57,8 @@
 									<td>${fieldValue(bean: complaintInstance, field: "utility") ?: "Unclear"}</td>
 
 									<td>${fieldValue(bean: complaintInstance, field: "content")}</td>
+
+									<td><g:formatDate format="E, dd-MM-yyyy" date="${complaintInstance?.dateCreated}"/></td>
 
 									<td><g:link controller="comment" params="[complaintId:complaintInstance.id]" action="create">Resolve</g:link></td>
 
@@ -89,7 +93,7 @@
 
 							  <g:sortableColumn property="content"
 												title="${message(code: 'complaint.content.label', default: 'Content')}"/>
-							  <th>Comments</th>
+							  <th><g:message code="complaint.dateResolved.label" default="Date Resolved"/></th>
 
 						  </tr>
 						  </thead>
@@ -107,10 +111,18 @@
 								  <td>${fieldValue(bean: complaintInstance, field: "utility")}</td>
 
 								  <td>${fieldValue(bean: complaintInstance, field: "content")}</td>
-								  <td>
-									  ${complaintInstance?.comments}
-								  </td>
+								  <td><g:formatDate format="E, dd-MM-yyyy" date="${complaintInstance?.dateResolved}"/> </td>
 
+							  </tr>
+							  <tr>
+								<td>
+								  <span style="font-weight: bold">Comments: </span>
+								  <ul style="padding-left: 50px; list-style-type: none">
+								  <g:each in="${complaintInstance?.comments}" status="c" var="comment">
+									<li>${comment} By ${comment.user.name}</li>
+								  </g:each>
+								</ul>
+								</td>
 							  </tr>
 						  </g:each>
 						  </tbody>
