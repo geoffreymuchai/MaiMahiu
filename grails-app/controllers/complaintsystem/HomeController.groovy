@@ -13,7 +13,7 @@ class HomeController {
             def isWasreb = securityService.isWasrebUser()
 
 			if (!isWasreb) {
-				def complaints = Complaint.findAllByUtility(user.utility)
+				def complaints = Complaint.findAllByUtility(user.utility, [sort:"dateCreated", order:"desc"])
 
 				render(view: 'utility', model: [utilityInstance: user, complaintInstanceList: complaints])
 			}

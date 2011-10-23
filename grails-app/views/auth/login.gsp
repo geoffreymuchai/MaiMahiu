@@ -18,12 +18,24 @@
             <td><input type="text" name="username" value="${username}"/></td>
         </tr>
         <tr>
+            <td>&nbsp;</td>
+            <td></td>
+        </tr>
+        <tr>
             <td>Password:</td>
             <td><input type="password" name="password" value=""/></td>
         </tr>
         <tr>
+            <td>&nbsp;</td>
+            <td></td>
+        </tr>
+        <tr>
             <td>Remember me?:</td>
             <td><g:checkBox name="rememberMe" value="${rememberMe}"/></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td></td>
         </tr>
         <tr>
             <td/>

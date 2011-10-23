@@ -12,7 +12,7 @@ class ComplaintController {
 		complaint.resolvedBy = securityService.getLoggedInUser()
 		complaint.save(flush:true)
 		if(securityService.isWasrebUser()) {
-			redirect controller: "home", action: wasreb
+			redirect controller: "home", action: "wasreb"
 		} else {
 			redirect controller: "home"
 		}

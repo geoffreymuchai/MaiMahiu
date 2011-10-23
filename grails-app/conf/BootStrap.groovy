@@ -57,12 +57,12 @@ class BootStrap {
 //        user.addToPermissions("*:*")
 //        user.save(failOnError: true)
 
-        def wasreb = new ShiroUser(username: "wasreb", passwordHash: new Sha256Hash("password").toHex(), email: "wasreb@voiceh20.com")
+        def wasreb = new ShiroUser(username: "wasreb", passwordHash: new Sha256Hash("password").toHex(), email: "wasreb@voiceh20.com", name: "John Kiriamiti")
         wasreb.addToPermissions("utility:*")
         wasreb.addToRoles(wasrebRole)
         wasreb.save(failOnError: true)
 
-        def nwc = new ShiroUser(username: "nwc", passwordHash: new Sha256Hash("1234").toHex(), email: "nairobiwatercompany@voiceh20.com", utility: Utility.findByName("Nairobi Water Company"))
+        def nwc = new ShiroUser(username: "nwc", passwordHash: new Sha256Hash("1234").toHex(), email: "nairobiwatercompany@voiceh20.com", utility: Utility.findByName("Nairobi Water Company"), name: "Charles Bonoko")
         nwc.addToPermissions("utility:*")
         nwc.save(failOnError: true)
 
