@@ -17,11 +17,16 @@ class Complaint {
 		status = status ?: "New"
 	}
 
+    String toString() {
+        return "${content}"
+    }
+
     String content
     String status
 	String ticketNumber
     Date dateResolved
 	Date dateCreated
     static belongsTo = [type: ComplaintType, affects: Customer, utility: Utility, source: Message]
+    static hasMany = [comments: Comment]
 }
 

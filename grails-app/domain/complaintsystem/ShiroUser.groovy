@@ -13,4 +13,8 @@ class ShiroUser {
         username(nullable: false, blank: false)
         utility(nullable: true)
     }
+
+    String toString() {
+        return "${username}"
+    }
 }
