@@ -96,10 +96,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="resolvedDate"><g:message code="complaint.resolvedDate.label" default="Resolved Date" /></label>
+                                  <label for="resolvedDate"><g:message code="complaint.dateResolved.label" default="Resolved Date" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: complaintInstance, field: 'resolvedDate', 'errors')}">
-                                    <g:datePicker name="resolvedDate" precision="day" value="${complaintInstance?.resolvedDate}" default="none" noSelection="['': '']" />
+                                    <g:datePicker name="resolvedDate" precision="day" value="${complaintInstance?.dateResolved}" default="none" noSelection="['': '']" />
                                 </td>
                             </tr>
                         
