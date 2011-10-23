@@ -11,6 +11,7 @@ class Complaint {
 		status(nullable:true, inList: ["New", "Viewed", "Resolved"])
 		ticketNumber(nullable:false, unique:true)
 		dateResolved(nullable:true, blank:true)
+		resolvedBy(nullable:true, blank:true)
     }
 
 	def beforeInsert = {
@@ -26,7 +27,7 @@ class Complaint {
 	String ticketNumber
     Date dateResolved
 	Date dateCreated
-    static belongsTo = [type: ComplaintType, affects: Customer, utility: Utility, source: Message]
+    static belongsTo = [type: ComplaintType, affects: Customer, utility: Utility, source: Message, resolvedBy: ShiroUser]
     static hasMany = [comments: Comment]
 }
 
