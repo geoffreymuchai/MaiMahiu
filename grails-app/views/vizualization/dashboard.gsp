@@ -46,18 +46,24 @@
                       data.addRows(6);
                       data.addColumn('string', 'Country');
                       data.addColumn('number', 'Number Of Complaints');
-                      data.setValue(0, 0, 'Nairobi');
-                      data.setValue(0, 1, 200);
-                      data.setValue(1, 0, 'Mombasa');
-                      data.setValue(1, 1, 300);
-                      data.setValue(2, 0, 'Kisumu');
-                      data.setValue(2, 1, 400);
-                      data.setValue(3, 0, 'Moyale');
-                      data.setValue(3, 1, 500);
-                      data.setValue(4, 0, 'Kajiado');
-                      data.setValue(4, 1, 600);
-                      data.setValue(5, 0, 'Kakamega');
-                      data.setValue(5, 1, 700);
+//                      data.setValue(0, 0, 'Nairobi');
+//                      data.setValue(0, 1, 200);
+//                      data.setValue(1, 0, 'Mombasa');
+//                      data.setValue(1, 1, 300);
+//                      data.setValue(2, 0, 'Kisumu');
+//                      data.setValue(2, 1, 400);
+//                      data.setValue(3, 0, 'Moyale');
+//                      data.setValue(3, 1, 500);
+//                      data.setValue(4, 0, 'Kajiado');
+//                      data.setValue(4, 1, 600);
+//                      data.setValue(5, 0, 'Kakamega');
+//                      data.setValue(5, 1, 700);
+
+                        var idx = 0;
+                        <g:each in="${geoResults}" status="i" var="result">
+                            data.setValue(${i}, 0, "${result.location}");
+                            data.setValue(${i}, 1, ${result.issues});
+                        </g:each>
 
                       var options = {};
                       options['dataMode'] = 'markers';
