@@ -23,7 +23,7 @@
     <div class="list">
         <table>
             <thead>
-            <tr>
+            <tr style="">
 
                 <g:sortableColumn property="id" title="${message(code: 'utility.id.label', default: 'Id')}"/>
 

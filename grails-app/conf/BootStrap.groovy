@@ -112,7 +112,7 @@ class BootStrap {
         def fm = ComplaintType.findByDescription("Faulty Meter") ?: new ComplaintType(description: "Faulty Meter", menuIdx: 5, urgencyRating: 6, tags: "Meter").save()
         def dp = ComplaintType.findByDescription("Delay in new application") ?: new ComplaintType(description: "Delay in new application", menuIdx: 6, urgencyRating: 7, tags: "Delay,application,new").save()
         def sb = ComplaintType.findByDescription("Sewer Bursts") ?: new ComplaintType(description: "Sewer Bursts", menuIdx: 7, urgencyRating: 1, tags: "Sewer,Bursts").save()
-        def ot = ComplaintType.findByDescription("Other") ?: new ComplaintType(description: "Other", menuIdx: 8, urgencyRating: 9).save()
+        def ot = ComplaintType.findByDescription("Other") ?: new ComplaintType(description: "Other", menuIdx: 8, urgencyRating: 9, tags: "-").save()
 
     }
 

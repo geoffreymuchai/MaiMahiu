@@ -25,7 +25,7 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "update"
+            dbCreate = "create-drop"
             url = "jdbc:hsqldb:file:prodDb;shutdown=true"
         }
     }

@@ -7,10 +7,32 @@ class MessageController {
     def scaffold = true
 	
     def receive = {
-        def message = new Message(src: params.from, message: params.message).save(flush:true)
-		def status = processMessage(message) ? true : false
-        render(contentType: "application/json") {
-            payload("success" : "$status")
+        if (params.task == "send") {
+//            redirect(action: reply)
+            def responses = Response.findAllByStatus("Pending")
+            def messages = []
+            responses.collect {
+                messages << [to: it.phoneNumber, message: it.message]
+                it.status = "Sent"
+                it.save(flush: true)
+            }
+            sendResponseAsJson(messages)
+        }
+        else
+        {
+            def message = new Message(src: params.from, message: params.message).save(flush:true)
+
+            if (Complaint.findByTicketNumber(params.from)) {
+                def complaint = Complaint.findByTicketNumber(params.from)
+                def response = new Response(phoneNumber: params.from, message: "Thanks for your enquiry. Your ticket status is ${complaint.status}.", status: "Pending").save()
+            }
+            else
+            {
+                def status = processMessage(message) ? true : false
+                render(contentType: "application/json") {
+                    payload("success" : "$status")
+                }
+            }
         }
     }
 	
@@ -20,7 +42,7 @@ class MessageController {
 	}
 
 	def sendResponseAsJson(message) {
-		def send = [success: "true", task: "send", messages:message]
+		def send = [success: "true", task: "send", secret: "mahiu", messages:message]
 		def payload = [payload:send]
 		render payload as JSON
 	}
@@ -50,7 +72,7 @@ class MessageController {
 			}
 			
 			if(tm?.location) {
-				utility= Utility.findByLocation(tm.location)
+				utility= Utility.findByLocationIlike(tm.location)
 			}
 
 			//generate ticket number
@@ -64,7 +86,7 @@ class MessageController {
 			setComplains(complaint, tm.complaint.toLowerCase())
 			println "complaint ticket number is ${complaint.ticketNumber}"
 
-            def response = new Response(phoneNumber: m.src, message: "Thanks you for registering your complaint. Your complaint reference number is ${complaint.ticketNumber}").save(flush: true, failOnError: true)
+            def response = new Response(phoneNumber: m.src, message: "Thank you for registering your complaint. Your complaint reference number is ${complaint.ticketNumber}").save(flush: true, failOnError: true)
             println "Response is ${response}"
 			complaint
 		} else {
@@ -86,6 +108,12 @@ class MessageController {
 				}
 			}
 		}
+        if (!found)
+        {
+            def ot = ComplaintType.findByDescription("Other")
+            complaint.setType(ot)
+        }
+
 	}
 
 	def splitMessage(message) {
