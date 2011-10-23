@@ -6,6 +6,8 @@
     <meta http-equiv="content-language" content="en" />
     <link rel="stylesheet" href="${resource(dir:'css', file:'style.css')}" />
     <title>VoiceH20 : Bring out your water issues</title>
+
+    <g:layoutHead/>
 </head>
 
 <body>
@@ -21,7 +23,7 @@
             <g:link controller="home">Home</g:link> <span>|</span>
             %{--<a href="#">About us</a> <span>|</span>--}%
             %{--<a href="#"></a> <span>|</span>--}%
-            <a href="#">Contact</a>
+            %{--<a href="#">Contact</a>--}%
             <g:link controller="auth">Login</g:link>
         </div> <!-- /nav -->
 

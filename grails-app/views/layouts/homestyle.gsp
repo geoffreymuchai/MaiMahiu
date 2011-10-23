@@ -21,7 +21,7 @@
             <a href="/home" id="nav-active">Home</a> <span>|</span>
             %{--<a href="#">About us</a> <span>|</span>--}%
             %{--<a href="#"></a> <span>|</span>--}%
-            <a href="#">Contact</a>
+            %{--<a href="#">Contact</a>--}%
         </div> <!-- /nav -->
 
     </div> <!-- /header -->

@@ -3,6 +3,9 @@ import complaintsystem.Utility
 import org.apache.shiro.crypto.hash.Sha256Hash
 import complaintsystem.ShiroUser
 import complaintsystem.ShiroRole
+import complaintsystem.Customer
+import complaintsystem.Message
+import complaintsystem.Complaint
 //import complaintsystem.SecRole
 //import complaintsystem.SecUser
 //import complaintsystem.SecUserSecRole
@@ -20,8 +23,31 @@ class BootStrap {
         createUtilities()
 //        createRoles()
         setupSecurity()
+        loadTestComplaints()
     }
     def destroy = {
+    }
+
+    def loadTestComplaints = {
+        def utility = Utility.findByName("Nairobi Water Company")
+        def customer = new Customer(accountNumber: "86463", phoneNumber: "0750323333").save()
+        def sb = ComplaintType.findByDescription("Sewer Bursts")
+        def wq = ComplaintType.findByDescription("Water Quality")
+        def fm = ComplaintType.findByDescription("Faulty Meter")
+        def message = new Message(src: "070323323", message: "234324#Nairobi#My sewer has burst").save()
+        def message1 = new Message(src: "070323323", message: "234324#Nairobi#My sewer has burst").save()
+        def message2 = new Message(src: "070323323", message: "234324#Nairobi#My sewer has burst").save()
+
+        def complaint = new Complaint(type: sb, utility: utility, affects: customer,
+                ticketNumber: "KDSFSD@", source: message, content: "My sewer has burst").save()
+
+//        def wq = new Complaint(type: Compl)
+
+        def complaint2 = new Complaint(type: wq, utility: utility, affects: customer,
+                ticketNumber: "JDSDD", source: message1, content: "My sewer has burst").save()
+
+        def complaint3 = new Complaint(type: fm, utility: utility, affects: customer,
+                ticketNumber: "JDJH#", source: message2, content: "My sewer has burst").save()
     }
 
     def setupSecurity() {
