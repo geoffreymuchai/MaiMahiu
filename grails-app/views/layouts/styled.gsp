@@ -18,7 +18,7 @@
 
         <!-- Navigation -->
         <div id="nav">
-            <a href="#" id="nav-active">Home</a> <span>|</span>
+            <g:link controller="home">Home</g:link> <span>|</span>
             %{--<a href="#">About us</a> <span>|</span>--}%
             %{--<a href="#"></a> <span>|</span>--}%
             <a href="#">Contact</a>
@@ -31,12 +31,12 @@
   <div id="tray">
 
         <ul>
-            <li id="tray-active"><a href="#">Home</a></li> <!-- Active page -->
-            <li><a href="#">Live demo</a></li>
-            <li><a href="#">About product</a></li>
-            <li><a href="#">Testimonials</a></li>
-            <li><a href="#">Download</a></li>
-            <li><a href="#">Purchase</a></li>
+            <li id="tray-active"><g:link controller="home">Home</g:link> </li> <!-- Active page -->
+            %{--<li><a href="#">Live demo</a></li>--}%
+            %{--<li><a href="#">About product</a></li>--}%
+            %{--<li><a href="#">Testimonials</a></li>--}%
+            %{--<li><a href="#">Download</a></li>--}%
+            %{--<li><a href="#">Purchase</a></li>--}%
         </ul>
 
         <!-- Search -->
@@ -65,21 +65,21 @@
     <!-- Footer -->
     <div id="footer">
 
-      <div id="col" class="box">
-          <!-- /ribbon (design/ribbon.gif) -->
-          <!-- Screenshot in browser (replace tmp/browser.gif) -->
-          <div id="col-text">
-            <h2 id="slogan"><span></span>Place for your slogan.</h2>
-            <p>Lorem ipsum dolor sit amet, <strong>consectetuer adipiscing</strong> elit. Nunc feugiat. In a massa. In feugiat pharetra lacus.
-              In non arcu nec libero pharetra rutrum. Curabitur hendrerit <a href="#">elementum diam</a>. Vestibulum mattistae sapien eu <a href="#">vehicula accumsan</a>,
-              erat quam porttitor orci, id ornare est eros et arcu. In odio. Morbi eu nisia et dolor dictum elementum. Vivamus commodo sodales felis.
-              Nulla gravida tristique metus.</p>
-            <p id="btns"> <a href="#"><img src="images/btn-tell.gif" alt="" /></a></p>
-        </div>
-          <!-- /col-text -->
-      </div>
+      %{--<div id="col" class="box">--}%
+          %{--<!-- /ribbon (design/ribbon.gif) -->--}%
+          %{--<!-- Screenshot in browser (replace tmp/browser.gif) -->--}%
+          %{--<div id="col-text">--}%
+            %{--<h2 id="slogan"><span></span>Place for your slogan.</h2>--}%
+            %{--<p>Lorem ipsum dolor sit amet, <strong>consectetuer adipiscing</strong> elit. Nunc feugiat. In a massa. In feugiat pharetra lacus.--}%
+              %{--In non arcu nec libero pharetra rutrum. Curabitur hendrerit <a href="#">elementum diam</a>. Vestibulum mattistae sapien eu <a href="#">vehicula accumsan</a>,--}%
+              %{--erat quam porttitor orci, id ornare est eros et arcu. In odio. Morbi eu nisia et dolor dictum elementum. Vivamus commodo sodales felis.--}%
+              %{--Nulla gravida tristique metus.</p>--}%
+            %{--<p id="btns"> <a href="#"><img src="images/btn-tell.gif" alt="" /></a></p>--}%
+        %{--</div>--}%
+          %{--<!-- /col-text -->--}%
+      %{--</div>--}%
       <p>&nbsp;</p>
-      <p>Copyright &copy;&nbsp;2008 <strong><a href="#">Your Name</a></strong>, All Rights Reserved &reg;</p>
+      <p>Copyright &copy;&nbsp;2011 <strong><a href="#">VoiceH20</a></strong></p>
 
     </div> <!-- /footer -->
 

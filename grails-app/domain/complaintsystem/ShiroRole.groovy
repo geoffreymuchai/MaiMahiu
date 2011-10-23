@@ -1,3 +1,5 @@
+package complaintsystem
+
 class ShiroRole {
     String name
 

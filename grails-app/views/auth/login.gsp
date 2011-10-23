@@ -1,36 +1,36 @@
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="layout" content="styled" />
-  <title>Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="layout" content="main"/>
+    <title>Login</title>
 </head>
+
 <body>
-  <g:if test="${flash.message}">
+<g:if test="${flash.message}">
     <div class="message">${flash.message}</div>
-  </g:if>
-  <g:form action="signIn">
-    %{--<input type="hidden" name="targetUri" value="${targetUri}" />--}%
-    <input type="hidden" name="targetUrl" value="<g:link controller="home" />" />
+</g:if>
+<g:form action="signIn">
+    <input type="hidden" name="targetUri" value="${targetUri}"/>
     <table>
-      <tbody>
+        <tbody>
         <tr>
-          <td>Username:</td>
-          <td><input type="text" name="username" value="${username}" /></td>
+            <td>Username:</td>
+            <td><input type="text" name="username" value="${username}"/></td>
         </tr>
         <tr>
-          <td>Password:</td>
-          <td><input type="password" name="password" value="" /></td>
+            <td>Password:</td>
+            <td><input type="password" name="password" value=""/></td>
         </tr>
         <tr>
-          <td>Remember me?:</td>
-          <td><g:checkBox name="rememberMe" value="${rememberMe}" /></td>
+            <td>Remember me?:</td>
+            <td><g:checkBox name="rememberMe" value="${rememberMe}"/></td>
         </tr>
         <tr>
-          <td />
-          <td><input type="submit" value="Sign in" /></td>
+            <td/>
+            <td><input type="submit" value="Sign in"/></td>
         </tr>
-      </tbody>
+        </tbody>
     </table>
-  </g:form>
+</g:form>
 </body>
 </html>
