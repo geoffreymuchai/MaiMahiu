@@ -26,17 +26,6 @@ class MessageController {
 	}
 
 	def reply = {
-//		def registeredComplaints = Complaint.findAllByStatus("New")
-//		println "registered Complaints are $registeredComplaints"
-//		def messages = []
-//
-//		registeredComplaints.collect {
-//			messages << [to: it.affects.phoneNumber, message: "Thanks you for registering your complaint. Your complaint reference number is ${it.ticketNumber}"]
-//			it.status = "Viewed"
-//			it.save(flush:true)
-//		}
-//		sendResponseAsJson(messages)
-
         def responses = Response.findAllByStatus("Pending")
         def messages = []
         responses.collect {
@@ -45,8 +34,6 @@ class MessageController {
             it.save(flush: true)
         }
         sendResponseAsJson(messages)
-
-		
 	}
 
 	def processMessage(Message m) {
