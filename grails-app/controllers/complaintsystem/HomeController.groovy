@@ -13,18 +13,27 @@ class HomeController {
 
         def isWasreb = false
 //        if (user.roles.)
-//        user.roles.each {
-//            if (role == ShiroRole.findByName(""))
-//        }
+        user.roles.each {
+            if (it.name == "WASREB") {
+               isWasreb = true
+            }
+        }
 
-        def complaints = Complaint.findAllByUtility(user.utility)
+        if (!isWasreb) {
+            def complaints = Complaint.findAllByUtility(user.utility)
 
-        render(view: 'utility', model: [utilityInstance: user, complaintInstanceList: complaints])
+            render(view: 'utility', model: [utilityInstance: user, complaintInstanceList: complaints])
+        }
+        else
+        {
+            redirect(action: wasreb)
+        }
+
 
     }
 
     def wasreb = {
-
+//        render(view: '')
     }
 }
 

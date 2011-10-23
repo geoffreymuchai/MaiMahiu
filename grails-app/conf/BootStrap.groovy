@@ -2,6 +2,7 @@ import complaintsystem.ComplaintType
 import complaintsystem.Utility
 import org.apache.shiro.crypto.hash.Sha256Hash
 import complaintsystem.ShiroUser
+import complaintsystem.ShiroRole
 //import complaintsystem.SecRole
 //import complaintsystem.SecUser
 //import complaintsystem.SecUserSecRole
@@ -24,12 +25,15 @@ class BootStrap {
     }
 
     def setupSecurity() {
-        def user = new ShiroUser(username: "user123", passwordHash: new Sha256Hash("password").toHex(), email: "admin@voiceh20.com")
-        user.addToPermissions("*:*")
-        user.save(failOnError: true)
+        def wasrebRole = new ShiroRole(name: "WASREB").save()
+
+//        def user = new ShiroUser(username: "user123", passwordHash: new Sha256Hash("password").toHex(), email: "admin@voiceh20.com")
+//        user.addToPermissions("*:*")
+//        user.save(failOnError: true)
 
         def wasreb = new ShiroUser(username: "wasreb", passwordHash: new Sha256Hash("password").toHex(), email: "wasreb@voiceh20.com")
         wasreb.addToPermissions("utility:*")
+        wasreb.addToRoles(wasrebRole)
         wasreb.save(failOnError: true)
 
         def nwc = new ShiroUser(username: "nwc", passwordHash: new Sha256Hash("1234").toHex(), email: "nairobiwatercompany@voiceh20.com", utility: Utility.findByName("Nairobi Water Company"))
