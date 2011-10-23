@@ -31,7 +31,7 @@
   <div id="tray">
 
         <ul>
-            %{--<li id="tray-active"><a href="">Home</a></li> <!-- Active page -->--}%
+            <li id="tray-active"><g:link controller="home">Home</g:link></li> <!-- Active page -->
             %{--<li><a href="#">Live demo</a></li>--}%
             %{--<li><a href="#">About product</a></li>--}%
             %{--<li><a href="#">Testimonials</a></li>--}%
